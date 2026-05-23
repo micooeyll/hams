@@ -75,7 +75,7 @@ real-time-gesture-recognition/
 Clone the repository:
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/real-time-gesture-recognition.git
+git clone https://github.com/micooeyll/real-time-gesture-recognition.git
 ```
 
 Install dependencies:
