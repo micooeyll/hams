@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="icon" href="images/fav.png">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>HAMS</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- =====================================================
+         INTRO
+    ====================================================== -->
+
+    <section id="introScreen" class="screen intro-screen">
+
+        <video id="introVideo" class="intro-video" autoplay muted playsinline>
+            <source src="hams.mp4" type="video/mp4">
+        </video>
+
+        <div class="intro-dark"></div>
+
+        <div class="intro-content">
+
+            <h1 class="hams-title">
+                HAMS
+            </h1>
+
+            <button id="startButton" type="button">
+                START
+            </button>
+
+            <div class="esc-text">
+                ESC TO EXIT
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         GAME
+    ====================================================== -->
+
+    <section id="gameScreen" class="screen game-screen hidden">
+
+        <div class="game-panel">
+
+            <video id="cameraVideo" class="camera-video" autoplay muted playsinline></video>
+
+            <div class="hud">
+
+                <div id="score">
+                    SCORE 0/7
+                </div>
+
+                <div class="live">
+                    <span></span>
+                    LIVE
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="game-panel">
+
+            <img id="gifImage" class="gif-image" src="images/normal.gif" alt="HAMS reaction">
+
+            <div id="status" class="status">
+                NORMAL
+            </div>
+
+        </div>
+
+
+        <div class="game-bottom">
+
+            <span>
+                Make the gestures!
+            </span>
+
+            <span>
+                ESC TO QUIT GAME
+            </span>
+
+        </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         AUDIO
+    ====================================================== -->
+
+    <audio id="introMusic" src="music/game.mp3" preload="auto" loop></audio>
+
+    <audio id="gameMusic" src="music/game2.mp3" preload="auto" loop></audio>
+
+
+    <!-- =====================================================
+         MEDIAPIPE
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+
+
+    <!-- =====================================================
+         APP
+    ====================================================== -->
+
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/hands/hands.js">
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh/face_mesh.js"></script>
+
+    <script src="app.js"></script>
+
+</body>
+
+</html>

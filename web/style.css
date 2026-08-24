@@ -1,0 +1,533 @@
+/* =========================================================
+   GLOBAL
+========================================================= */
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+
+    overflow: hidden;
+
+    background: #000;
+
+    font-family:
+        "Courier New",
+        monospace;
+}
+
+body {
+    min-height: 100dvh;
+}
+
+
+/* =========================================================
+   SCREEN
+========================================================= */
+
+.screen {
+    position: fixed;
+
+    inset: 0;
+
+    width: 100vw;
+    height: 100dvh;
+
+    overflow: hidden;
+}
+
+.hidden {
+    display: none !important;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.intro-screen {
+    background: #000;
+}
+
+
+/* =========================================================
+   INTRO VIDEO
+========================================================= */
+
+.intro-video {
+    position: absolute;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   DARK OVERLAY
+========================================================= */
+
+.intro-dark {
+    position: absolute;
+
+    inset: 0;
+
+    background:
+        rgba(0, 0, 0, 0.28);
+
+    z-index: 2;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   INTRO CONTENT
+========================================================= */
+
+.intro-content {
+    position: absolute;
+
+    inset: 0;
+
+    z-index: 5;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    justify-content: center;
+
+    padding-bottom: 5vh;
+}
+
+
+/* =========================================================
+   HAMS TITLE
+========================================================= */
+
+.hams-title {
+    margin: 0 0 7vh;
+
+    color: white;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(70px, 12vw, 170px);
+
+    font-weight: 900;
+
+    letter-spacing:
+        clamp(10px, 1.8vw, 25px);
+
+    line-height: 1;
+
+    text-align: center;
+
+    text-transform: uppercase;
+
+    -webkit-text-stroke: 2px black;
+
+    text-shadow:
+        6px 6px 0 #000,
+        10px 10px 0 rgba(0, 0, 0, 0.55);
+}
+
+
+/* =========================================================
+   START BUTTON
+========================================================= */
+
+#startButton {
+    width:
+        min(420px, 70vw);
+
+    height: 90px;
+
+    border:
+        3px solid white;
+
+    border-radius: 14px;
+
+    background:
+        rgba(0, 0, 0, 0.78);
+
+    color: white;
+
+    font-family:
+        "Courier New",
+        monospace;
+
+    font-size:
+        clamp(26px, 3vw, 42px);
+
+    font-weight: 900;
+
+    letter-spacing: 6px;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.12s ease,
+        background 0.12s ease,
+        color 0.12s ease;
+}
+
+#startButton:hover {
+    background: white;
+
+    color: black;
+
+    transform: scale(1.04);
+}
+
+#startButton:active {
+    transform: scale(0.97);
+}
+
+
+/* =========================================================
+   ESC
+========================================================= */
+
+.esc-text {
+    margin-top: 25px;
+
+    color:
+        rgba(255, 255, 255, 0.9);
+
+    font-size:
+        clamp(15px, 1.5vw, 23px);
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    animation:
+        blink 1s steps(1) infinite;
+}
+
+@keyframes blink {
+
+    0%,
+    45% {
+        opacity: 1;
+    }
+
+    46%,
+    100% {
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================================================
+   GAME
+========================================================= */
+
+.game-screen {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    grid-template-rows:
+        minmax(0, 1fr);
+
+    gap: 10px;
+
+    padding: 10px;
+
+    background: #050505;
+}
+
+
+/* =========================================================
+   GAME PANEL
+========================================================= */
+
+.game-panel {
+    position: relative;
+
+    min-width: 0;
+    min-height: 0;
+
+    overflow: hidden;
+
+    border:
+        2px solid rgba(255, 255, 255, 0.22);
+
+    border-radius: 18px;
+
+    background: #000;
+}
+
+
+/* =========================================================
+   CAMERA
+========================================================= */
+
+#cameraVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: scaleX(-1);
+}
+
+/* =========================================================
+   GIF
+========================================================= */
+
+.gif-image {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+
+    background: #000;
+}
+
+
+/* =========================================================
+   HUD
+========================================================= */
+
+.hud {
+    position: absolute;
+
+    top: 20px;
+    left: 22px;
+    right: 22px;
+
+    z-index: 10;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    pointer-events: none;
+}
+
+
+/* =========================================================
+   SCORE
+========================================================= */
+
+#score {
+    color: white;
+
+    font-size:
+        clamp(20px, 2.3vw, 36px);
+
+    font-weight: 900;
+
+    letter-spacing: 3px;
+
+    text-shadow:
+        3px 3px 0 #000;
+}
+
+
+/* =========================================================
+   LIVE
+========================================================= */
+
+.live {
+    color: white;
+
+    font-size:
+        clamp(15px, 1.5vw, 24px);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+
+    text-shadow:
+        2px 2px 0 #000;
+}
+
+.live span {
+    display: inline-block;
+
+    width: 11px;
+    height: 11px;
+
+    margin-right: 7px;
+
+    border-radius: 50%;
+
+    background: red;
+
+    animation:
+        liveBlink 1s infinite;
+}
+
+@keyframes liveBlink {
+
+    0%,
+    50% {
+        opacity: 1;
+    }
+
+    51%,
+    100% {
+        opacity: 0.25;
+    }
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+    position: absolute;
+
+    left: 50%;
+
+    bottom: 20px;
+
+    transform:
+        translateX(-50%);
+
+    padding:
+        8px 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.35);
+
+    border-radius: 10px;
+
+    background:
+        rgba(0,0,0,0.7);
+
+    color: white;
+
+    font-size:
+        clamp(12px, 1.2vw, 18px);
+
+    font-weight: 900;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================================================
+   BOTTOM
+========================================================= */
+
+.game-bottom {
+    position: absolute;
+
+    left: 50%;
+    bottom: 14px;
+
+    transform:
+        translateX(-50%);
+
+    z-index: 20;
+
+    display: flex;
+
+    gap: 25px;
+
+    padding:
+        8px 18px;
+
+    border:
+        1px solid rgba(255,255,255,0.2);
+
+    border-radius: 10px;
+
+    background:
+        rgba(0,0,0,0.78);
+
+    color: white;
+
+    font-size:
+        clamp(11px, 1vw, 16px);
+
+    font-weight: 700;
+
+    white-space: nowrap;
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+    .intro-content {
+        padding:
+            20px;
+    }
+
+    .hams-title {
+        margin-bottom: 7vh;
+
+        font-size:
+            clamp(55px, 20vw, 100px);
+
+        letter-spacing: 8px;
+    }
+
+    #startButton {
+        width: 82vw;
+
+        height: 70px;
+
+        font-size: 25px;
+    }
+
+    .esc-text {
+        font-size: 13px;
+    }
+
+    .game-screen {
+        grid-template-columns: 1fr;
+
+        grid-template-rows:
+            1fr 1fr;
+
+        gap: 6px;
+
+        padding: 6px;
+    }
+
+    .game-panel {
+        border-radius: 10px;
+    }
+
+    .game-bottom {
+        bottom: 8px;
+
+        gap: 10px;
+
+        padding:
+            6px 10px;
+
+        font-size: 10px;
+    }
+}
